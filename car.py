@@ -1,11 +1,14 @@
 """A class that can be used to represent a car."""
 
 
+# parent class: Car
+# child class:ElectricCar
+# class: Battery
 class Car():
     """A simple attempt to represent a car."""
 
     def __init__(self, make, model, year):
-        """Initialize attributes to describe a car."""
+        """Initialize attributes."""
         self.make = make
         self.model = model
         self.year = year
@@ -22,18 +25,18 @@ class Car():
 
     def update_odometer(self, mileage):
         """
-        Set the odometer to a given value.
+        Allow the odometer to be setted to a given value.
         Reject the change if it attempts to roll the odometer back.
         """
         if mileage >= self.odometer_reading:
             self.odometer_reading = mileage
         else:
-            print('You cannot roll back a odometer!')
+            print('You cannot roll back an odometer!')
 
     def increment_odometer(self, increment):
         """
-        Add a given amount to the odometer reading.
-        Reject the change if the increment is minus.
+        Allow users to add a given amount to the odometer reading.
+        Reject the change if it attempts to roll the odometer back.
         """
         if increment >= 0:
             self.odometer_reading += increment
@@ -42,7 +45,7 @@ class Car():
 
 
 class Battery():
-    """A simple attempt to represent a electric vehicles."""
+    """A simple attempt to represent the battery of electric cars."""
 
     def __init__(self, battery_size=70):
         """Initialize attributes specific to electric vehicles."""
@@ -53,7 +56,8 @@ class Battery():
         print(
             'This car has a ' +
             str(self.battery_size) +
-            '-kwh battery.')
+            '-kwh battery.'
+             )
 
     def get_range(self):
         """"Print a statement showing about the range this battery provides."""
@@ -65,7 +69,7 @@ class Battery():
             'This car can go approximately ' +
             str(range) +
             ' miles on a full charge.'
-        )
+             )
 
 
 class ElectricCar(Car):
@@ -74,7 +78,7 @@ class ElectricCar(Car):
     def __init__(self, make, model, year):
         """
         Initialize attributes of parent class.
-        Then initialize attribute specific to a electric car.
+        Then initialize attribute specific to an electric car.
         """
         super().__init__(make, model, year)
         self.battery = Battery()
