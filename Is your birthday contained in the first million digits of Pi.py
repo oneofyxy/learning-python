@@ -1,8 +1,8 @@
 # 函数open（），参数为需要打开的文件的名称
 # 关键词with，在不再需要访问文件后将其关闭
 # 方法read(),读取文件全部内容
+# 方法readlines()，从文件中读取每一行，并将其存储在一个列表中
 file_path = r'C:\Users\HP\Documents\Python_Work\text_files\pi_million_digits.txt'
-
 with open(file_path) as file_object:
     lines = file_object.readlines()
 
